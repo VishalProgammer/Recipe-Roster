@@ -1,0 +1,12 @@
+#option{
+    font-size: large;
+    color: black;
+    margin-left: 30px;
+}
+
+#option:hover{
+    background-color: black;
+    color: aliceblue;
+
+}
+
