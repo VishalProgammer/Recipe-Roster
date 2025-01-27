@@ -1,0 +1,48 @@
+.scroll-container {
+    display: flex; /* Lay out cards in a row */
+    gap: 1rem; /* Add space between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 1rem 0;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888 transparent;
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 10px; /* Height of scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #888; /* Scrollbar color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker on hover */
+}
+
+.card-e {
+    display: inline-block;
+    margin: 5px;
+    flex: 0 0 auto; /* Prevent shrinking */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.card-e:hover {
+    img{
+    opacity: 50%;    
+    }
+    background-color: black;
+    transform: scale(1.05);
+}
+
+h1{
+    margin-left: 10px;
+}
+.card-title-e{
+    -webkit-text-stroke:0.1px black;
+    text-shadow: 2px 2px black;
+}
+
+footer{
+    text-align: center;
+}

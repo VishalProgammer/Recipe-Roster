@@ -1,0 +1,23 @@
+#navbarSupportedContent{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#left-nav{
+    padding: 5px 10px;
+}
+
+#option{
+    font-size: large;
+    color: black;
+    margin-left: 30px;
+}
+
+#option:hover{
+    background-color: black;
+    color: aliceblue;
+
+}

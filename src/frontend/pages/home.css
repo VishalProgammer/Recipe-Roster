@@ -1,12 +1,5 @@
-#option{
-    font-size: large;
-    color: black;
-    margin-left: 30px;
+ .col{
+    width: 20%;
 }
 
-#option:hover{
-    background-color: black;
-    color: aliceblue;
-
-}
 
