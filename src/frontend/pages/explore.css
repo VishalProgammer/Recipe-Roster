@@ -26,6 +26,8 @@
     flex: 0 0 auto; /* Prevent shrinking */
     cursor: pointer;
     transition: transform 0.3s ease;
+    width: 20%;
+    height: 15%;
 }
 .card-e:hover {
     img{

@@ -1,13 +1,41 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './home.css'
+import { useState } from 'react';
 
+// APIs:
+import { getRandomRecipes } from '../../backend/api/home-backend';
+import { getTopRecipes } from '../../backend/api/home-backend';
+import { useEffect } from 'react';
 
 const Home = (props) => {
+  const [topRecipes, setTopRecipes] = useState([]);
+  const [randomRecipes, setRandomRecipes] = useState([]);
+  const img_error = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAAC2CAMAAAAvDYIaAAAAaVBMVEX///9RUVFZWVl1dXWOjo6amprOzs6+vr78/Pzn5+eXl5dHR0fLy8tvb2/v7++KioqioqLX19dERET29vbGxsbe3t7u7u7AwMCDg4NcXFynp6dUVFRNTU2xsbFqamri4uJ7e3s/Pz9kZGThv4iLAAACi0lEQVR4nO3b0XaiMBSFYdEQAgKCoFjB0pn3f8gBEqh2bOHKsJr/u4NycdjrEJJINxsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgkqa2K1idIGn2dXa2XcaaKN+rt9utl7S2K1mRoNkOvJ3tSqwKs8vlejIH6m1rNKXVquyqPpLdLtlJfSS9MRQvs1uXTXkXSe9d90pcj6HUkeXK7FG+CSXRjdFOoXhXy6XZk+5Gl2I4kYypNLm5RJbSXn1W3IWiZyb5m07F009Pke07zU3ZLPLVissYijBnytqr69o7DDGoj73X2wunUqnGMaUaz/SvaGGeHV9n0qVys1WgFSLR4+xdKyhlDs7eZOtUq6hr8v6+uxXP/hYcp1D+nJ5d8Hup9rsbzvZTKMf4pTWtWHXXKfn85b/AgkEibKZQGgfGFJVnfpbP3agS09vHhfnt9SCEOMy+Z9O/OpXjx9OB+HcJ+ky6VGa3B9LIO+6PdebAw5MKY8HNtuUtdmIXrr2YUA4OPBVLhWMoglAmRWQaxa3V74xcD7QitF3IqshDRzi2npml8nJ27gYAAF6AGf5XRZxFmWu//M25Rb7vR9X8hQ6RfSZdKk5slCwVmFBolU/qZkIJbFeyJrEJhWXynXM0DLRX1sn32iyKxJU9pkdFHrfL+mT6BgGTcxiGfH79KA179MqD8xCKg//BoH5YGxZDKK+rZSUKWVby+1j6VJxbUBdBr/ohlcK5TDb5EErgxodKS+lMAvn5gklPJ/cGkUfl11DOMpax440T6lCmnRUVy07sdq8o+aVRCKWX5vn9+0WHwsz+QT6kwsT+gWql5IOE/7BZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGC5f6FUGVYMfOfLAAAAAElFTkSuQmCC'
+
+  useEffect(() => {
+    const fetchtopRecipes = async () => {
+      const data = await getTopRecipes(); // Import data from RecipeFetcher
+      setTopRecipes(data);
+    };
+
+    fetchtopRecipes();
+  }, []);
+
+  useEffect(() => {
+    const fetchrandomRecipes = async () => {
+      const data = await getRandomRecipes(); // Import data from RecipeFetcher
+      setRandomRecipes(data);
+    };
+
+    fetchrandomRecipes();
+  }, []);
+
     return<>
     
 
     {/* Recipe Highlights */}
+    {console.log(randomRecipes)}
     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-indicators">
         <button
@@ -34,46 +62,44 @@ const Home = (props) => {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="https://i.pinimg.com/736x/f0/3d/0e/f03d0e5563fc362ec3db2a3399f972bb.jpg"
+            src={topRecipes.length>0?topRecipes[0].image :  img_error}
             width="200px"
             height="400px"
             className="d-block w-100"
-            alt="111"
+            alt={topRecipes.length>0?topRecipes[0].id :  '123'}
           />
           <div className="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h3 className='TD-title'>{topRecipes.length>0?topRecipes[0].title :  'Loading....'}</h3>
           </div>
         </div>
         <div className="carousel-item">
           <img
-            src="https://i.pinimg.com/236x/33/f0/46/33f046bfc8179ffea4242836aba5098e.jpg"
+            src={topRecipes.length>0?topRecipes[1].image :  img_error}
             width="200px"
             height="400px"
             className="d-block w-100"
-            alt="123"
+            alt={topRecipes.length>0?topRecipes[1].id :  '1234'}
           />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h3 className='TD-title'>{topRecipes.length>0?topRecipes[1].title :  'Loading....'}</h3>
           </div>
         </div>
         <div className="carousel-item">
           <img
-            src="https://i.pinimg.com/236x/b2/1e/f5/b21ef5e157cfdc6e33447a776b8f09f4.jpg"
+            src={topRecipes.length>0?topRecipes[2].image :  img_error}
             width="200px"
             height="400px"
             className="d-block w-100"
-            alt="321"
+            alt={topRecipes.length>0?topRecipes[2].id :  '12345'}
           />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h3 className='TD-title'>{topRecipes.length>0?topRecipes[2].title :  'Loading....'}</h3>
           </div>
         </div>
       </div>
+      <div className='corousel-arrow'>
       <button
-        className="carousel-control-prev"
+        className="carousel-control-prev side-btn"
         type="button"
         data-bs-target="#carouselExampleCaptions"
         data-bs-slide="prev">
@@ -81,7 +107,7 @@ const Home = (props) => {
         <span className="visually-hidden">Previous</span>
       </button>
       <button
-        className="carousel-control-next"
+        className="carousel-control-next side-btn"
         type="button"
         data-bs-target="#carouselExampleCaptions"
         data-bs-slide="next"
@@ -89,46 +115,27 @@ const Home = (props) => {
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
       </button>
+      </div>
     </div>
 
     <hr /><br />
 
     {/* Recipe Suggestions */}
+    <h1>New Recipes for you:</h1>
     <div className="row row-cols-1 row-cols-md-3 g-4">
-        <div className="col">
+      {randomRecipes.map((recipe) => (
+        <div className="col" key={recipe.id}>
             <div className="card">
-            <img src="https://i.pinimg.com/236x/58/e4/33/58e43306c3e4e0b2692c8ed3c0917efb.jpg" className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-            </div>
+                <img src={recipe.image || img_error} className="card-img-top" alt={recipe.title || "Recipe"} />
+                <div className="card-body">
+                    <h5 className="card-title">{recipe.title || "No Title Available"}</h5>
+                </div>
             </div>
         </div>
-        <div className="col">
-            <div className="card">
-            <img src="https://i.pinimg.com/236x/37/ef/d1/37efd1f101efb96f592a3bcc0420601e.jpg" className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-            </div>
-            </div>
-        </div>
-        <div className="col">
-            <div className="card">
-            <img src="https://i.pinimg.com/236x/f3/87/78/f38778445e8f3162621d8c1e44ad5233.jpg" className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-            </div>
-            </div>
-        </div>
-        <div className="col">
-            <div className="card">
-            <img src="https://i.pinimg.com/236x/e4/83/29/e4832963257aff8de1522a02e8549f12.jpg" className="card-img-top" alt="..."/>
-            <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-            </div>
-            </div>
-        </div>
+    ))}
     </div>
     </>
+    
 }
 
 export default Home;

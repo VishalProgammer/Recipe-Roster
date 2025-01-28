@@ -18,10 +18,10 @@ function App() {
     {/* <Home/> */}
 
     {/* EXPLORE PAGE */}
-    {/* <Explore/> */}
+    <Explore/>
 
     {/* Add New Recipe */}
-    <AddRecipe/>
+    {/* <AddRecipe/> */}
 
     </>
   )
