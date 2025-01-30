@@ -5,6 +5,7 @@ import { NavBar } from './frontend/components/NavBar'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Explore } from './frontend/pages/explore'
 import { AddRecipe } from './frontend/pages/AddNew'
+import { Recipes } from './frontend/pages/RecipesPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,7 @@ function App() {
     {/* Add New Recipe */}
     {/* <AddRecipe/> */}
 
+    {/* <Recipes/> */}
     </>
   )
 }
