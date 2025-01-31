@@ -2,17 +2,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './explore.css';
 import { Recipes } from './RecipesPage';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
-// API imports:
-import { getIngredients, getRecipesByCuisine } from '../../backend/api/explore-backend';
+// Components
+import CuisineComponent from '../components/RecipesByCuisine';
+import DietComponent from '../components/RecipesByDiet';
+import IngredientComponent from '../components/RecipesByIngredient';
+
+const img_error = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAAC2...';
+
 
 export const Explore = () => {
-    const [ingredients, setIngredients] = useState([]);
-    const [recipes, setRecipes] = useState([]);
     const [recipePageVisible, setRecipePageVisible] = useState(false);
+    const [selectedCuisine, setSelectedCuisine] = useState('');
+    const [selectedDiet, setSelectedDiet] = useState('');
+    const [dietPageVisible, setDietPageVisible] = useState(false);
+    const [selectedIngredient, setSelectedIngredient] = useState('');
+    const [ingredientPageVisible, setIngredientPageVisible] = useState(false);
 
-    const img_error = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAAC2...';
+
+    
 
         // All Cuisine List:
         const cuisinesWithImages = [
@@ -62,15 +71,23 @@ export const Explore = () => {
             { name: "Olive Oil", image: "https://spoonacular.com/cdn/ingredients_100x100/olive-oil.jpg" }
         ];
 
-    // Fetch Recipes by Cuisine
-    const fetchIngredients = async (prop) => {
-        const data = await getRecipesByCuisine(prop);
-        setRecipes(data);
-        setRecipePageVisible(true);
-    };
 
     if (recipePageVisible) {
-        return <Recipes data={recipes} />;
+        return <> 
+        <CuisineComponent selectedCuisine={selectedCuisine}/>
+        </>
+    }
+
+    else if (dietPageVisible){
+        return <> 
+        <DietComponent selectedDiet={selectedDiet}/>
+        </>
+    }
+
+    else if (ingredientPageVisible){
+        return <> 
+        <IngredientComponent selectedIngredient={selectedIngredient}/>
+        </>
     }
 
     return (
@@ -78,7 +95,12 @@ export const Explore = () => {
             <h1>Cuisines:</h1>
             <div className="scroll-container">
                 {cuisinesWithImages.map((item, index) => (
-                    <div className="card card-e text-bg-dark" onClick={() => fetchIngredients(item.cuisine)} key={index}>
+                    <div className="card card-e text-bg-dark" 
+                    onClick={() =>{
+                        setRecipePageVisible(true);
+                        setSelectedCuisine(item.cuisine);
+                    } } 
+                    key={index}>
                         <img src={item.image || img_error} className="card-img" alt={item.cuisine} />
                         <div className="card-img-overlay">
                             <h4 id="card-t" className="card-title">{item.cuisine}</h4>
@@ -91,7 +113,12 @@ export const Explore = () => {
             <h1>Diets:</h1>
             <div className="scroll-container">
                 {dietCategories.map((item, index) => (
-                    <div className="card card-e text-bg-dark" key={index}>
+                    <div className="card card-e text-bg-dark"
+                    onClick={() =>{
+                        setDietPageVisible(true);
+                        setSelectedDiet(item.name);
+                    } }
+                    key={index}>
                         <img src={item.image || img_error} className="card-img" alt={item.name} />
                         <div className="card-img-overlay">
                             <h4 id="card-t" className="card-title">{item.name}</h4>
@@ -104,7 +131,12 @@ export const Explore = () => {
             <h1>Ingredients:</h1>
             <div className="scroll-container">
                 {commonIngredients.map((item, index) => (
-                    <div className="card card-i text-bg-white" key={index}>
+                    <div className="card card-i text-bg-white"
+                    onClick={() =>{
+                        setIngredientPageVisible(true);
+                        setSelectedIngredient(item.name);
+                    } }
+                    key={index}>
                         <img src={item.image || img_error} className="card-img" alt={item.name} />
                         <div className="card-img-overlay">
                             <h4 id="card-t" className="card-title">{item.name}</h4>

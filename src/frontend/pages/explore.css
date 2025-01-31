@@ -37,6 +37,8 @@
     transform: scale(1.05);
 }
 
+
+
 .card-i {
     display: inline-block;
     margin: 5px;
@@ -72,4 +74,8 @@ footer{
     -webkit-text-stroke: 1px #000000; 
     -webkit-text-stroke: 1px #000000;
     font-weight: bold;
+}
+
+.col{
+    width: 20%;
 }
