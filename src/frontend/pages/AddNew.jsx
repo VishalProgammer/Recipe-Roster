@@ -39,7 +39,6 @@ export const AddRecipe = (props) => {
                 rows="3"></textarea>
             </div>
 
-
             <div className="mb-3 name">
                 <label for="exampleFormControlTextarea1" class="form-label">Step by Step Summary:</label>
                 <textarea className="form-control"  placeholder="First, cook the rice, preferably a day before, to ensure it's less sticky. Then, prepare your ingredients by chopping vegetables like carrots, peas, and onions, along with garlic and any optional protein such as chicken, shrimp, or tofu. In a large pan or wok, heat some oil over medium-high heat. Cook your protein until fully done, then set it aside. Next, add garlic and the chopped vegetables to the pan, stir-frying until they become tender. After that, add the rice to the pan and stir it to break it apart. Season with soy sauce, salt, and pepper to taste, and you can also add a dash of sesame oil. Push the rice to one side of the pan and scramble an egg in the open space. Finally, mix everything together and cook for another minute or two before serving. Enjoy your fried rice!"/>

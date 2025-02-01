@@ -19,7 +19,7 @@ export const Explore = () => {
     const [dietPageVisible, setDietPageVisible] = useState(false);
     const [selectedIngredient, setSelectedIngredient] = useState('');
     const [ingredientPageVisible, setIngredientPageVisible] = useState(false);
-
+    
 
     
 

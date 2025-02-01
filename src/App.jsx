@@ -16,10 +16,10 @@ function App() {
     <NavBar/>
 
     {/* HOME PAGE */}
-    {/* <Home/> */}
+    <Home/>
 
     {/* EXPLORE PAGE */}
-    <Explore/>
+    {/* <Explore/> */}
 
     {/* Add New Recipe */}
     {/* <AddRecipe/> */}
