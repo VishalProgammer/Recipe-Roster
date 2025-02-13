@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_KEY = "504a1f254fd04663ae8e71fabd564ff3";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 // ✅ Ensure hook always returns an object
 export const useRecipeById = (id) => {

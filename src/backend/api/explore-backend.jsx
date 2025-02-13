@@ -1,8 +1,7 @@
 const API_BASE_URL = 'https://api.spoonacular.com';
 import { useEffect, useState } from "react";
 import axios from "axios";
-const API_KEY = '504a1f254fd04663ae8e71fabd564ff3';
-
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 
 // Fetch recipes by Cuisine:
