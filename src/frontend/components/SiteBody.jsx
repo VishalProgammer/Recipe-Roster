@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './navbar.css'
 import Body from './Body';
 import { useState } from 'react';
+import LogoutFooter from './Logout';
 
 export const SiteBody = (props) => {
   const [homeVisible, sethomeVisible] = useState(true);
@@ -58,6 +59,8 @@ export const SiteBody = (props) => {
     <br />
 
     <Body homeVisibility={homeVisible} exploreVisibility={exploreVisible} addRecipeVisibility={addRecipeVisible}/>
+
+    <footer><LogoutFooter/></footer>
   </>
 
 }
