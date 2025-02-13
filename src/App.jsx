@@ -8,7 +8,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <h1 className='header'>Racipe Roaster</h1>
+    <h1 className='header'>Racipe Roaster</h1>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Register />} />

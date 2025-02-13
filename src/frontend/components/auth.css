@@ -28,4 +28,5 @@
 
 .footer:hover{
     cursor: pointer;
+    color: red;
 }

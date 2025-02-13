@@ -19,11 +19,7 @@ export const SiteBody = (props) => {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                         <a id='option'
-                        onClick={() => {
-                          sethomeVisible(true);
-                          setexploreVisible(false);
-                          setaddRecipeVisible(false);
-                        }}
+                        onClick={() => window.location.reload()}
                         className="nav-link ">Home</a>
                         </li>
                         <li className="nav-item">
