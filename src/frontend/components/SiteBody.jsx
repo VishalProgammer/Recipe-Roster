@@ -8,7 +8,7 @@ import LogoutFooter from './Logout';
 export const SiteBody = (props) => {
   const [homeVisible, sethomeVisible] = useState(true);
   const [exploreVisible, setexploreVisible] = useState(false);
-  const [addRecipeVisible, setaddRecipeVisible] = useState(false);
+  const [FavoriteRecipesListVisible, setFavoriteRecipesListVisible] = useState(false);
 
   return<>
   {/* Navigation Bar */}
@@ -27,7 +27,7 @@ export const SiteBody = (props) => {
                         onClick={() => {
                           sethomeVisible(false);
                           setexploreVisible(true);
-                          setaddRecipeVisible(false);
+                          setFavoriteRecipesListVisible(false);
                         }}
                         className="nav-link">Explore</a>
                         </li>
@@ -36,25 +36,26 @@ export const SiteBody = (props) => {
                         onClick={() => {
                           sethomeVisible(false);
                           setexploreVisible(false);
-                          setaddRecipeVisible(true);
+                          setFavoriteRecipesListVisible(true);
                         }}
-                        className="nav-link " >Add Recipe</a>
+                        className="nav-link " >Favorite Recipes</a>
                         </li>
                     </ul>
                   </div>
-                  <div id='right-nav'>
+
+                  {/* <div id='right-nav'>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                  </div>
+                  </div> */}
                 </div>
             </div>
         </nav>
 
     <br />
 
-    <Body homeVisibility={homeVisible} exploreVisibility={exploreVisible} addRecipeVisibility={addRecipeVisible}/>
+    <Body homeVisibility={homeVisible} exploreVisibility={exploreVisible} FavoriteRecipesListVisibility={FavoriteRecipesListVisible}/>
 
     <footer><LogoutFooter/></footer>
   </>

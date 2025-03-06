@@ -1,0 +1,27 @@
+#Fav-R:hover{
+    cursor: pointer;
+    color: yellow;
+    -webkit-text-stroke:0.1px black;
+    text-shadow: 1px 1px black;
+}
+
+#favlist{
+    padding-bottom: 100%;
+    font-size: larger;
+    margin: 50px;
+}
+
+
+#favlist li{
+    display: inline-block;
+    transform-origin: left center;
+    transition: transform 0.3s ease;
+}
+#favlist li:hover{
+    cursor: pointer;
+    transform: scale(1.10) translateX(5px);
+}
+
+.favbtn{
+    margin-left: 10%;
+}

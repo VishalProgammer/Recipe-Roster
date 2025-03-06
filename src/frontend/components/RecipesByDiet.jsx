@@ -14,7 +14,7 @@ const DietComponent = ({ selectedDiet }) => {
     if(idPageVisible){
         return(<>
         <IdComponent selectedId={selectedId}/>
-        
+        <button className="btn btn-primary" onClick={handleSave}>Add to Fav</button>
         </>)
     }
     else return (<>
