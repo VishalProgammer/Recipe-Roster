@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './navbar.css'
+import './NavBar.css'
 import Body from './Body';
 import { useState } from 'react';
 import LogoutFooter from './Logout';
