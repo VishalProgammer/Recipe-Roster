@@ -46,7 +46,7 @@ const Home = (props) => {
     else return<>
     
 
-    {/* Recipe Highlights */}
+    <h1 className='home-highlights'>Recipe Highlights</h1>
     {console.log(randomRecipes)}
     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-indicators">

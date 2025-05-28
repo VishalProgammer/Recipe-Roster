@@ -30,3 +30,11 @@
     cursor: pointer;
     color: red;
 }
+
+.dummy-alert{
+    color: red;
+    border: solid black 3px;
+    padding: 10px;
+    border-radius: 20%;
+    -webkit-text-stroke: 0.5px red;
+}

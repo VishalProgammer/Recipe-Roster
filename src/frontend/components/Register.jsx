@@ -85,6 +85,7 @@ export const Register = () => {
           Already have an account? <Link to="/">Login here</Link>
         </p>
       </span>
+      <span><p className="dummy-alert">NOTE: This is a dummy feature, real email or password not required.</p></span>
     </div>
   );
 };

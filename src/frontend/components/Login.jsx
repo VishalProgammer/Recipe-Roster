@@ -66,6 +66,7 @@ export const Login = () => {
           Don't have an account? <Link to="/signup">Register here</Link>
         </p>
       </span>
+      <span><p className="dummy-alert">NOTE: This is a dummy feature, real email or password not required.</p></span>
     </div>
   );
 };

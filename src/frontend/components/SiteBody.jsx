@@ -5,10 +5,9 @@ import Body from './Body';
 import { useState } from 'react';
 import LogoutFooter from './Logout';
 
-export const SiteBody = (props) => {
+export const SiteBody = () => {
   const [homeVisible, sethomeVisible] = useState(true);
   const [exploreVisible, setexploreVisible] = useState(false);
-  const [FavoriteRecipesListVisible, setFavoriteRecipesListVisible] = useState(false);
 
   return<>
   {/* Navigation Bar */}
@@ -31,7 +30,10 @@ export const SiteBody = (props) => {
                         }}
                         className="nav-link">Explore</a>
                         </li>
-                        <li className="nav-item">
+
+                        {/* IGNORED FEATURE: */}
+
+                        {/* <li className="nav-item">
                         <a id='option' 
                         onClick={() => {
                           sethomeVisible(false);
@@ -39,23 +41,17 @@ export const SiteBody = (props) => {
                           setFavoriteRecipesListVisible(true);
                         }}
                         className="nav-link " >Favorite Recipes</a>
-                        </li>
+                        </li> */}
+
                     </ul>
                   </div>
-
-                  {/* <div id='right-nav'>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                  </div> */}
                 </div>
             </div>
         </nav>
 
     <br />
 
-    <Body homeVisibility={homeVisible} exploreVisibility={exploreVisible} FavoriteRecipesListVisibility={FavoriteRecipesListVisible}/>
+    <Body homeVisibility={homeVisible} exploreVisibility={exploreVisible}/>
 
     <footer><LogoutFooter/></footer>
   </>
