@@ -1,2 +1,4 @@
 # Recipe-Roster
-I am aiming to make it a fully functional Recipe manager app  where you can Discover, Store and Learn your favorite recipes. 
+It a fully functional Recipeweb app where you can Discover new recipes via cousines, diets and ingridents.
+
+You can check it out here: https://recipe-roster.netlify.app
